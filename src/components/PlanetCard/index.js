@@ -2,7 +2,7 @@ import GeneratedPlanetImage from '../GeneratedPlanetImage';
 
 const PlanetCard = ({ pl_name, releasedate, pl_rade }) => {
   return (
-    <div className="card">
+    <div className="card overflow-hidden">
       <GeneratedPlanetImage pl_name={pl_name} />
       <div className="card-body">
         <h5 className="card-title">{pl_name}</h5>

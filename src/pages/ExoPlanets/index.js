@@ -6,6 +6,7 @@ import PlanetsGrid from '../../components/PlanetsGrid';
 
 const ExoPlanets = () => {
   const [planets, setPlanets] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
     const getPlanets = async () => {
@@ -20,13 +21,48 @@ const ExoPlanets = () => {
   }, []);
   console.log('planets', planets);
 
+  const filteredPlanets = planets.filter((planet) => {
+    return planet.pl_name.toLowerCase().includes(searchTerm.toLowerCase());
+  });
+
+  const handleInputChange = (event) => {
+    setSearchTerm(event.target.value);
+  };
+
   return (
-    <div className={`container-sm ${style.main}`}>
-      <h1>Exoplanets</h1>
-      <PlanetsGrid planets={planets} />
-      <PlanetsTable planets={planets} />
-    </div>
+    <>
+      <div className={`container-sm ${style.main}`}>
+        <h1>Exoplanets</h1>
+      </div>
+      <div className={`container-sm ${style.main}`}>
+        <SearchBar handleInputChange={handleInputChange} />
+      </div>
+      <div className={`container-sm ${style.main}`}>
+        <PlanetsGrid planets={filteredPlanets} />
+      </div>
+      <div className={`container-sm ${style.main}`}>
+        <PlanetsTable planets={filteredPlanets} />
+      </div>
+    </>
   );
 };
 
 export default ExoPlanets;
+
+const SearchBar = ({ handleInputChange }) => {
+  return (
+    <nav class="navbar navbar-light bg-light">
+      <div class="container-fluid">
+        <form className="d-flex">
+          <input
+            className="form-control"
+            type="search"
+            placeholder="Search for a planet..."
+            aria-label="Search"
+            onChange={handleInputChange}
+          />
+        </form>
+      </div>
+    </nav>
+  );
+};
