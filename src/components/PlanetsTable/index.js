@@ -1,4 +1,5 @@
 import style from './style.module.scss';
+
 const PlanetsTable = ({ planets }) => {
   const planetsByReleasedate = [...planets].sort(
     (a, b) => new Date(b.releasedate) - new Date(a.releasedate),
