@@ -1,11 +1,9 @@
 import AnimatedPlanet from '../AnimatedPlanet';
-import GeneratedPlanetImage from '../GeneratedPlanetImage';
 import UniverseBox from '../UniverseBox';
 
 const PlanetCard = ({ pl_name, releasedate, pl_rade }) => {
   return (
     <div className="card overflow-hidden">
-      {/* <GeneratedPlanetImage pl_name={pl_name} /> */}
       <UniverseBox>
         <AnimatedPlanet pl_name={pl_name} pl_rade={pl_rade} />
       </UniverseBox>

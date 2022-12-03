@@ -1,12 +1,12 @@
 import { useRef, useState } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import UniverseBox from '../UniverseBox';
 import { useTexture } from '@react-three/drei';
 
-import TerraMapImage from '../../assets/img/mercurymap.jpg';
-import TerraBumpImage from '../../assets/img/mercurybump.jpg';
-import GasMapImage from '../../assets/img/jupitermap.jpg';
 import { stringToColorHSL } from '../../lib/helpers';
+
+import GasMapImage from '../../assets/img/jupitermap.jpg';
+import TerraBumpImage from '../../assets/img/mercurybump.jpg';
+import TerraMapImage from '../../assets/img/mercurymap.jpg';
 
 // TODO: Optimise this component
 const AnimatedPlanet = ({ pl_name, pl_rade }) => {
@@ -22,7 +22,7 @@ const AnimatedPlanet = ({ pl_name, pl_rade }) => {
 
 export default AnimatedPlanet;
 
-const Planet = ({ pl_name = 'TOI-1268 b', pl_rade = 9.1 }) => {
+const Planet = ({ pl_name, pl_rade }) => {
   // This reference gives us direct access to the THREE.Mesh object
   const ref = useRef();
   const [hovered, setHovered] = useState(false);
@@ -37,6 +37,8 @@ const Planet = ({ pl_name = 'TOI-1268 b', pl_rade = 9.1 }) => {
   const texture = useTexture(MapImage);
   const BumpImage = pl_rade > 7 ? GasMapImage : TerraBumpImage;
   const bump = useTexture(BumpImage) || null;
+
+  // TODO: Set initial rotation based on planet's data
 
   /**
    * Subscribe this component to the render-loop,
