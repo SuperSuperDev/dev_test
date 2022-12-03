@@ -7,7 +7,6 @@ import AnimatedPlanet from './components/AnimatedPlanet';
 const App = () => (
   <div className={style.main}>
     <Hero />
-    <AnimatedPlanet />
     <Home />
     <ExoPlanets />
   </div>

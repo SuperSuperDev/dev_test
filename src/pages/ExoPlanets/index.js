@@ -51,8 +51,8 @@ export default ExoPlanets;
 
 const SearchBar = ({ handleInputChange }) => {
   return (
-    <nav class="navbar navbar-light bg-light">
-      <div class="container-fluid">
+    <nav className="navbar navbar-light bg-light">
+      <div className="container-fluid">
         <form className="d-flex">
           <input
             className="form-control"
