@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import style from './style.module.scss';
 
 const PlanetsTable = ({ planets }) => {
@@ -30,7 +31,9 @@ const PlanetsTable = ({ planets }) => {
               <td>{releasedate}</td>
               <td>{pl_rade}</td>
               <td>
-                <button className="btn btn-dark">View</button>
+                <Link to={`/exoplanets/${pl_name}`} className="btn btn-dark">
+                  Visit Planet
+                </Link>
               </td>
             </tr>
           ),

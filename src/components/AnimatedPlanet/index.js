@@ -9,10 +9,10 @@ import TerraBumpImage from '../../assets/img/mercurybump.jpg';
 import TerraMapImage from '../../assets/img/mercurymap.jpg';
 
 // TODO: Optimise this component
-const AnimatedPlanet = ({ pl_name, pl_rade }) => {
+const AnimatedPlanet = ({ pl_name, pl_rade, isStellar = false }) => {
   return (
     <Canvas style={{ padding: '20px' }}>
-      <ambientLight />
+      {/* <ambientLight /> */}
       <pointLight position={[150, -150, 0]} color={'rgb(150,150,150)'} />
       <pointLight position={[-150, 150, 300]} color={'rgb(255,255,255)'} />
       <Planet position={[0, 0, 0]} pl_name={pl_name} pl_rade={pl_rade} />

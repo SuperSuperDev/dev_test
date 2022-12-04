@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import AnimatedPlanet from '../AnimatedPlanet';
 import UniverseBox from '../UniverseBox';
 
@@ -15,9 +16,11 @@ const PlanetCard = ({ pl_name, releasedate, pl_rade }) => {
         <p className="card-text">
           <strong>Planet Radius (earth units):</strong> {pl_rade}
         </p>
-        <a href="#" className="btn btn-dark">
-          View
-        </a>
+        <div class="d-grid gap-2 col-6 mx-auto">
+          <Link to={`/exoplanets/${pl_name}`} className="btn btn-dark">
+            Visit Planet
+          </Link>
+        </div>
       </div>
     </div>
   );

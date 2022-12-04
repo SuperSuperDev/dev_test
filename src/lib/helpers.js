@@ -11,7 +11,17 @@ export function reverseString(string) {
 }
 
 export function stringToDegree(string) {
-  return [...string].reduce((acc, char) => {
-    return char.charCodeAt(0) + ((acc << 5) - acc);
-  }, 0) % 360;
+  return (
+    [...string].reduce((acc, char) => {
+      return char.charCodeAt(0) + ((acc << 5) - acc);
+    }, 0) % 360
+  );
+}
+
+export function kelvinToCelsius(kelvin) {
+  return Math.round(kelvin - 273.15);
+}
+
+export function planetRadiustoMiles(earthRadii) {
+  return Math.round(earthRadii * 3959);
 }
