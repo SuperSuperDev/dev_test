@@ -16,7 +16,7 @@ const PlanetCard = ({ pl_name, releasedate, pl_rade }) => {
         <p className="card-text">
           <strong>Planet Radius (earth units):</strong> {pl_rade}
         </p>
-        <div class="d-grid gap-2 col-6 mx-auto">
+        <div className="d-grid gap-2 col-6 mx-auto">
           <Link to={`/exoplanets/${pl_name}`} className="btn btn-dark">
             Visit Planet
           </Link>

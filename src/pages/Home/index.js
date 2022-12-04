@@ -7,7 +7,7 @@ const Home = () => (
     <Hero />
     <div className={`container-sm ${style.main}`}>
       <div>
-        <h1>Cosmos</h1>
+        <h1 className={style.heading}>Cosmos</h1>
         <p>
           Once you have an innovation culture, even those who are not scientists
           or engineers - poets, actors, journalists - they, as communities,
