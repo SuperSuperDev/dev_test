@@ -42,7 +42,13 @@ const SinglePlanet = () => {
             <h1>Something went wrong...</h1>
           ) : (
             <>
-              <PlanetCardHorizontal {...defaultPlanet} />
+              <PlanetCardHorizontal
+                speedX={0.0003}
+                speedY={0.005}
+                hoverSpeedX={0}
+                hoverSpeedY={0}
+                {...defaultPlanet}
+              />
               <SystemCardHorizontal {...defaultPlanet} />
             </>
           )}

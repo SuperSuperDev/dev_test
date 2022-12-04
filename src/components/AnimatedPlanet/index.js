@@ -7,22 +7,52 @@ import { stringToColorHSL } from '../../lib/helpers';
 import GasMapImage from '../../assets/img/jupitermap.jpg';
 import TerraBumpImage from '../../assets/img/mercurybump.jpg';
 import TerraMapImage from '../../assets/img/mercurymap.jpg';
+import TransparentImage from '../../assets/img/transparent.png';
 
 // TODO: Optimise this component
-const AnimatedPlanet = ({ pl_name, pl_rade, isStellar = false }) => {
+const AnimatedPlanet = ({
+  pl_name,
+  pl_rade,
+  isStellar = false,
+  hoverSpeedY = 0.005,
+  speedY = 0,
+  hoverSpeedX = 0.0003,
+  speedX = 0,
+}) => {
   return (
     <Canvas style={{ padding: '20px' }}>
-      {/* <ambientLight /> */}
-      <pointLight position={[150, -150, 0]} color={'rgb(150,150,150)'} />
-      <pointLight position={[-150, 150, 300]} color={'rgb(255,255,255)'} />
-      <Planet position={[0, 0, 0]} pl_name={pl_name} pl_rade={pl_rade} />
+      <ambientLight intensity={0.5} />
+      {/* <pointLight position={[150, -150, 0]} color={'rgb(150,150,150)'} />
+      <pointLight position={[-150, 150, 300]} color={'rgb(255,255,255)'} /> */}
+      <directionalLight
+        position={[1, -1, 0]}
+        color={'rgb(253, 126, 20)'}
+        intensity={5}
+        castShadow={true}
+      />
+      <Planet
+        position={[0, 0, 0]}
+        pl_name={pl_name}
+        pl_rade={pl_rade}
+        hoverSpeedY={hoverSpeedY}
+        speedY={speedY}
+        hoverSpeedX={hoverSpeedX}
+        speedX={speedX}
+      />
     </Canvas>
   );
 };
 
 export default AnimatedPlanet;
 
-const Planet = ({ pl_name, pl_rade }) => {
+const Planet = ({
+  pl_name,
+  pl_rade,
+  hoverSpeedY,
+  speedY,
+  hoverSpeedX,
+  speedX,
+}) => {
   // This reference gives us direct access to the THREE.Mesh object
   const ref = useRef();
   const [hovered, setHovered] = useState(false);
@@ -35,8 +65,8 @@ const Planet = ({ pl_name, pl_rade }) => {
    **/
   const MapImage = pl_rade > 7 ? GasMapImage : TerraMapImage;
   const texture = useTexture(MapImage);
-  const BumpImage = pl_rade > 7 ? GasMapImage : TerraBumpImage;
-  const bump = useTexture(BumpImage) || null;
+  const BumpImage = pl_rade > 7 ? TransparentImage : TerraBumpImage;
+  const bump = useTexture(BumpImage);
 
   // TODO: Set initial rotation based on planet's data
 
@@ -44,8 +74,14 @@ const Planet = ({ pl_name, pl_rade }) => {
    * Subscribe this component to the render-loop,
    * onHover: rotate the mesh every frame
    **/
-  useFrame((state, delta) => (ref.current.rotation.y += hovered ? 0.005 : 0));
-
+  useFrame(
+    (state, delta) =>
+      (ref.current.rotation.y += hovered ? hoverSpeedY : speedY),
+  );
+  useFrame(
+    (state, delta) =>
+      (ref.current.rotation.x += hovered ? hoverSpeedX : speedX),
+  );
   return (
     <mesh
       ref={ref}

@@ -12,12 +12,23 @@ const PlanetCardHorizontal = ({
   pl_bmasse,
   pl_eqt,
   soltype,
+  speedX,
+  speedY,
+  hoverSpeedX,
+  hoverSpeedY,
 }) => {
   return (
     <div className="card text-white bg-transparent mb-3">
       <div className="row g-0">
         <div className={`col-md-4 ${style.wrapper}`}>
-          <AnimatedPlanet pl_name={pl_name} pl_rade={pl_rade} />
+          <AnimatedPlanet
+            pl_name={pl_name}
+            pl_rade={pl_rade}
+            speedX={speedX}
+            speedY={speedY}
+            hoverSpeedX={hoverSpeedX}
+            hoverSpeedY={hoverSpeedY}
+          />
         </div>
         <div className="col-md-8">
           <div className="card-body">
