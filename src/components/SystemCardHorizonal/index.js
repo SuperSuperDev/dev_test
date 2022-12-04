@@ -1,7 +1,4 @@
-import { Link } from 'react-router-dom';
-import AnimatedPlanet from '../AnimatedPlanet';
 import AnimatedStar from '../AnimatedStar';
-import UniverseBox from '../UniverseBox';
 import style from './style.module.scss';
 
 const SystemCardHorizontal = ({

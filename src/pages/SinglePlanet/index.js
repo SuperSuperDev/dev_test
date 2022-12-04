@@ -15,8 +15,6 @@ const SinglePlanet = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const defaultPlanet = planet?.find((p) => p.default_flag === 1) || planet[0];
-  console.dir('defaultPlanet :', defaultPlanet);
-  console.dir('planet :', planet);
 
   useEffect(() => {
     const getPlanet = async () => {

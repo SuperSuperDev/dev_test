@@ -1,6 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
-import Hero from './components/Hero';
 import style from './App.module.scss';
 import ExoPlanets from './pages/ExoPlanets';
 import SinglePlanet from './pages/SinglePlanet';

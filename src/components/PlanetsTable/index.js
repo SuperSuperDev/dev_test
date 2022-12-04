@@ -6,7 +6,6 @@ const PlanetsTable = ({ planets }) => {
     (a, b) => new Date(b.releasedate) - new Date(a.releasedate),
   );
 
-  // TODO - find different unique (stable) value to replace index as key below
   return (
     <table className="table">
       <thead>

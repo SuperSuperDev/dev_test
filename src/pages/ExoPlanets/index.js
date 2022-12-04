@@ -9,7 +9,7 @@ const ExoPlanets = () => {
   const [planets, setPlanets] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [activeView, setActiveView] = useState('table');
-  console.log('activeView :', activeView);
+
   useEffect(() => {
     const getPlanets = async () => {
       try {
@@ -31,7 +31,6 @@ const ExoPlanets = () => {
   };
 
   const handleViewChange = useCallback((event) => {
-    console.log('event.target.value :', event.target.value);
     setActiveView(event.target.value);
   }, []);
 

@@ -1,7 +1,5 @@
-import { Link } from 'react-router-dom';
 import { kelvinToCelsius, planetRadiustoMiles } from '../../lib/helpers';
 import AnimatedPlanet from '../AnimatedPlanet';
-import UniverseBox from '../UniverseBox';
 import style from './style.module.scss';
 
 const PlanetCardHorizontal = ({
