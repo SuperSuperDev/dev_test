@@ -54,7 +54,7 @@ const SinglePlanet = () => {
           )}
 
           <div className={`container-sm ${style.content}`}>
-            <h1>Exoplanets</h1>
+            <h1>All Observations</h1>
             <PlanetsTable planets={planet} />
           </div>
         </div>
